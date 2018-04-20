@@ -1,0 +1,19 @@
+# directory
+alias dev="cd $HOME/Develop"
+alias down="cd $HOME/Downloads"
+
+# vim
+alias v="nvim"
+alias vedit="nvim ~/.config/nvim/init.vim"
+
+# zsh
+alias zedit="nvim ~/.zshrc"
+alias zaedit="nvim ~/.zshrc_alias"
+alias zuedit="nvim ~/.zshrc_utils"
+
+# ssh
+alias sshWork="ssh-add -k ~/.ssh/id_rsa_work"
+alias sshPersonal="ssh-add -k ~/.ssh/id_rsa_personal"
+
+# etc
+alias fzcp="fzf | pbcopy"

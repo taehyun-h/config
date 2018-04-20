@@ -1,0 +1,14 @@
+# Change sh behaviour.
+function chpwd() {
+    emulate -L zsh
+    ls
+}
+
+function fzop() {
+    local files
+    IFS=$'\n' files=($(fzf-tmux --query="$1" --multi --select-1 --exit-0))
+    [[ -n "$files" ]] && ${EDITOR:-vim} "${files[@]}"
+}
+
+# Install scm_breeze
+[ -s "$HOME/.scm_breeze/scm_breeze.sh" ] && source "$HOME/.scm_breeze/scm_breeze.sh"
