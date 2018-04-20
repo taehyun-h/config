@@ -9,6 +9,8 @@ call plug#begin('~/.config/nvim/plugged')
 " appearance
 Plug 'altercation/vim-colors-solarized'
 Plug 'nathanaelkane/vim-indent-guides'
+Plug 'Yggdroot/indentLine'
+Plug 'ervandew/supertab'
 
 " git
 Plug 'scrooloose/nerdtree'
@@ -38,3 +40,10 @@ set autochdir
 
 " nerdtree
 map <C-n> :NERDTreeFind<CR>
+map <C-c> "*y
+
+" indentline
+let g:indentLine_char= ''
+let g:indentLine_leadingSpaceEnabled = 1
+let g:indentLine_leadingSpaceChar = '·'
+let g:indentLine_color_term = 239

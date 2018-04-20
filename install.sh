@@ -4,11 +4,15 @@ set -e
 
 CONFIG=~/Develop/config
 
+# ssh
+ln -s $CONFIG/config ~/.ssh
+
 # oh-my-zsh
 sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 ln -s $CONFIG/.zshrc ~
 ln -s $CONFIG/.zshrc_alias ~
 ln -s $CONFIG/.zshrc_utils ~
+ln -s $CONFIG/.zshrc_work ~
 
 # scm_breeze
 git clone git://github.com/scmbreeze/scm_breeze.git ~/.scm_breeze
@@ -28,5 +32,17 @@ curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
 brew install fzf
 brew install ag
 brew install neovim
+brew install boost
+brew install trash
+
+# xcode-command-line-tools
+xcode-select --install
+sudo xcode-select -s /Applications/Xcode.app/Contents/Developer<Paste>
+
+# karabiner-elements
+git clone --depth 1 https://github.com/tekezo/Karabiner-Elements.git
+
+# unity
+cp unity_layout.wlt ~/Library/Preferences/Unity/Editor-5.x/Layouts/taehyun.wlt<Paste>
 
 echo "Install Success"

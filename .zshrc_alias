@@ -1,6 +1,10 @@
 # directory
-alias dev="cd $HOME/Develop"
 alias down="cd $HOME/Downloads"
+
+alias dev="cd $HOME/Develop"
+alias config="cd $HOME/Develop/config"
+alias test-unity="cd $HOME/Develop/TestUnityProject"
+alias unity-builtin-shader="cd $HOME/Develop/unity/builtin_shaders-2017.4.3f1"
 
 # vim
 alias v="nvim"
@@ -10,10 +14,16 @@ alias vedit="nvim ~/.config/nvim/init.vim"
 alias zedit="nvim ~/.zshrc"
 alias zaedit="nvim ~/.zshrc_alias"
 alias zuedit="nvim ~/.zshrc_utils"
+alias zwedit="nvim ~/.zshrc_work"
+alias szrc="source ~/.zshrc"
 
 # ssh
-alias sshWork="ssh-add -k ~/.ssh/id_rsa_work"
-alias sshPersonal="ssh-add -k ~/.ssh/id_rsa_personal"
+alias sshWork="ssh-add -D; ssh-add -K ~/.ssh/id_rsa_work"
+alias sshPersonal="ssh-add -D; ssh-add -k ~/.ssh/id_rsa_personal"
+
+# git
+alias gpull="git fetch --prune; git pull --rebase; git submodule update"
 
 # etc
 alias fzcp="fzf | pbcopy"
+alias rm="trash"
