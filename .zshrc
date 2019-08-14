@@ -1,6 +1,7 @@
 export ZSH=~/.oh-my-zsh
 ZSH_THEME="ys"
 plugins=(git)
+plugins=(zsh-autosuggestions)
 source $ZSH/oh-my-zsh.sh
 
 # export
