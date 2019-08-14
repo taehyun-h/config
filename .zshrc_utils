@@ -10,5 +10,16 @@ function fzop() {
     [[ -n "$files" ]] && ${EDITOR:-vim} "${files[@]}"
 }
 
+function fzdop() {
+    local files
+    IFS=$'\n' files=($(fzf-tmux --query="$1" --multi --select-1 --exit-0))
+    DIR_PATH=$(dirname $files)
+    cd $DIR_PATH
+}
+
+function uu {
+    fd "${1}.meta" | xargs -I{} cat {} | grep guid | cut -d ' ' -f 2 | xargs -I{} rg -l {}
+}
+
 # Install scm_breeze
 [ -s "$HOME/.scm_breeze/scm_breeze.sh" ] && source "$HOME/.scm_breeze/scm_breeze.sh"
