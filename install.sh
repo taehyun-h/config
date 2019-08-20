@@ -4,24 +4,28 @@ set -e
 
 CONFIG=~/Develop/config
 
+# xcode-command-line-tools
+xcode-select --install
+
 # ssh
 ln -s $CONFIG/config ~/.ssh
 
 # oh-my-zsh
 sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-ln -s $CONFIG/.zshrc ~
+ln -sf $CONFIG/.zshrc ~
 ln -s $CONFIG/.zshrc_alias ~
 ln -s $CONFIG/.zshrc_utils ~
-ln -s $CONFIG/.zshrc_work ~
+git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
+git clone https://github.com/zsh-users/zsh-syntax-highlighting ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
 
 # scm_breeze
 git clone git://github.com/scmbreeze/scm_breeze.git ~/.scm_breeze
 ~/.scm_breeze/install.sh
-ln -s $CONFIG/.git.scmbrc ~
+ln -sf $CONFIG/.git.scmbrc ~
 
 # nvim
 mkdir -p ~/.config/nvim
-ln -s $CONFIG/init.vim ~/.config/nvim
+ln -sf $CONFIG/init.vim ~/.config/nvim
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
         https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
@@ -32,17 +36,8 @@ curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
 brew install fzf
 brew install ag
 brew install neovim
-brew install boost
 brew install trash
 
-# xcode-command-line-tools
-xcode-select --install
-sudo xcode-select -s /Applications/Xcode.app/Contents/Developer<Paste>
-
-# karabiner-elements
-git clone --depth 1 https://github.com/tekezo/Karabiner-Elements.git
-
-# unity
-cp unity_layout.wlt ~/Library/Preferences/Unity/Editor-5.x/Layouts/taehyun.wlt<Paste>
+source ~/.zshrc
 
 echo "Install Success"
